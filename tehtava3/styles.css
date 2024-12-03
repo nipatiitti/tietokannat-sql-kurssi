@@ -14,6 +14,37 @@ h1 {
     text-align: center;
 }
 
+/* Sub heading */
+h2 {
+    color: #004080;
+    text-align: center;
+}
+
+/* Taulukot */
+table {
+    margin: 50px auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 500px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #004080;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+
 /* Lomakkeen tyylit */
 form {
     background-color: white;

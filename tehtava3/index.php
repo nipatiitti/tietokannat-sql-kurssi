@@ -40,6 +40,13 @@ if (!$result) {
     die('Testitilin lisääminen epäonnistui: ' . pg_last_error());
 }
 
+// Tilit palvelimella
+$tilit_query = "SELECT tilinumero, omistaja, summa FROM TILIT";
+$tilit_result = pg_query($conn, $tilit_query);
+if (!$tilit_result) {
+    die('Tilien hakeminen epäonnistui: ' . pg_last_error());
+}
+
 pg_close($conn);
 ?>
 <!DOCTYPE html>
@@ -64,6 +71,27 @@ pg_close($conn);
 
         <input type="submit" value="Siirrä">
     </form>
+
+    <h2>Tilit</h2>
+
+    <table>
+        <tr>
+            <th>Tilinumero</th>
+            <th>Omistaja</th>
+            <th>Summa</th>
+        </tr>
+        <?php
+        while ($row = pg_fetch_assoc($tilit_result)) {
+            echo '<tr>';
+            echo '<td>' . htmlspecialchars($row['tilinumero']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['omistaja']) . '</td>';
+            echo '<td>' . htmlspecialchars(number_format($row['summa'], 2)) . '</td>';
+            echo '</tr>';
+        }
+        ?>
+    </table>
+
+
 </body>
 
 </html>
