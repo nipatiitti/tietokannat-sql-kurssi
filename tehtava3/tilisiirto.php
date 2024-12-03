@@ -7,9 +7,9 @@ $tilille = $_POST['to'];
 
 $dbhost = 'localhost';
 $dbport = '5432';
-$dbname = 'tietokanta_nimi';
-$dbuser = 'tietokanta_kayttaja';
-$dbpass = 'tietokanta_salasana';
+$dbname = 'tvnija';
+$dbuser = 'tvnija';
+$dbpass = 'mfNxucJbkt7ZafM';
 
 $conn = pg_connect("host=$dbhost port=$dbport dbname=$dbname user=$dbuser password=$dbpass");
 if (!$conn) {

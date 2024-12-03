@@ -18,6 +18,7 @@ session_destroy();
 
 <head>
     <title>Tilisiirron tulos</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
