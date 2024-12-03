@@ -5,11 +5,7 @@ $summa = floatval($_POST['summa']);
 $tililta = $_POST['from'];
 $tilille = $_POST['to'];
 
-$dbhost = 'localhost';
-$dbport = '5432';
-$dbname = 'tvnija';
-$dbuser = 'tvnija';
-$dbpass = 'mfNxucJbkt7ZafM';
+include 'db.php';
 
 $conn = pg_connect("host=$dbhost port=$dbport dbname=$dbname user=$dbuser password=$dbpass");
 if (!$conn) {
