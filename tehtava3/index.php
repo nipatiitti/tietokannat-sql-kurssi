@@ -30,6 +30,16 @@ if (!$result) {
     die('Testitilin lisääminen epäonnistui: ' . pg_last_error());
 }
 
+$insert_account_query = "
+INSERT INTO TILIT (tilinumero, omistaja, summa) VALUES
+('def', 'Toinen testikäyttäjä', 50.00)
+ON CONFLICT (tilinumero) DO NOTHING;
+";
+$result = pg_query($conn, $insert_account_query);
+if (!$result) {
+    die('Testitilin lisääminen epäonnistui: ' . pg_last_error());
+}
+
 pg_close($conn);
 ?>
 <!DOCTYPE html>
